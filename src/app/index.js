@@ -4,4 +4,14 @@ document.addEventListener('click', e => {
     conseguirId(e)
 })
 
-console.log("hola mundo")
+const añadirAlCarrito = document.getElementById('añadirCarrito')
+
+añadirAlCarrito.addEventListener('click', () => {
+    alert(2)
+})
+
+const combrarYa = document.getElementById('combrarYa')
+
+combrarYa.addEventListener('click', () => {
+    alert(3)
+})
