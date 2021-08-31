@@ -9,7 +9,7 @@
           "precio": "80.00",
           "id": 1,
           "carrusel": ["https://res.cloudinary.com/danimel/image/upload/v1630449102/Rectangle_4_xnytnk.png", "https://res.cloudinary.com/danimel/image/upload/v1630449102/Rectangle_3_zprmmq.png", "https://res.cloudinary.com/danimel/image/upload/v1630449101/Rectangle_1_oqqg9z.png", "https://res.cloudinary.com/danimel/image/upload/v1630449101/Rectangle_2_krdfad.png"]       
-          },
+        },
         {
           "url": "",
           "nombre": "Pose For it Tee",
