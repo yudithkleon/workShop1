@@ -39,3 +39,36 @@ items_grande.innerHTML = `
 <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630421820/Workshop%2031Agosto/Frame_16_babliz.png" alt="">
 
 `
+
+let stop_botLane = document.getElementById('stop_botLane')
+
+stop_botLane.innerHTML = `
+<div class="grid-column-producto">
+<div class="imagen-producto">
+    <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630417957/Workshop%2031Agosto/Rectangle_1_rkjpy2.png" alt="">
+</div>
+<div class="descripcion-producto">
+    <p class="nombre-producto">Nombre producto</p>
+    <p class="precio-producto">$0000</p>
+</div>
+</div>
+<div class="grid-column-producto">
+<div class="imagen-producto">
+    <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630417955/Workshop%2031Agosto/Frame_20_ind8rr.png" alt="">
+</div>
+<div class="descripcion-producto">
+    <p class="nombre-producto">Nombre producto</p>
+    <p class="precio-producto">$0000</p>
+</div>
+
+</div>
+<div class="grid-column-producto">
+<div class="imagen-producto">
+    <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630417958/Workshop%2031Agosto/Frame_17_rpc5yn.png" alt="">
+</div>
+<div class="descripcion-producto">
+    <p class="nombre-producto">Nombre producto</p>
+    <p class="precio-producto">$0000</p>
+</div>
+</div>
+`
