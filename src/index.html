@@ -23,9 +23,20 @@
                 <a>
                     <img class="mx-3" src="https://res.cloudinary.com/danimel/image/upload/v1630440426/icons8-user_2_naj2j4.png" alt="">
                 </a>
-                <a>
+                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                     <img class="mx-3" src="https://res.cloudinary.com/danimel/image/upload/v1630440426/icons8-user_3_pby3p9.png" alt="">  
-                </a>
+                    </button>
+
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 id="offcanvasRightLabel">Stok</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div id="compras"></div>
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+                    </div>
               </div>
             </div>
         </nav>
@@ -34,27 +45,13 @@
     <main>        
         
         <div class="grid-row-vista-productos">
-          
             <div class="grid-column-productos">
-                
-                <div class="grid-colomn-items">
-                    <div class="grid-item-pequeño">
-                        <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630421820/Workshop%2031Agosto/Frame_16_babliz.png" alt="" >
-                    </div>
-                    <div class="grid-item-pequeño">
-                        <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630417970/Workshop%2031Agosto/Frame_14_y0u0da.png" alt=""  >
-                    </div>
-                    <div class="grid-item-pequeño">
-                        <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630417970/Workshop%2031Agosto/Frame_15_lbxmo0.png" alt=""  >
-                    </div>
-                    <div class="grid-item-pequeño">
-                        <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630417970/Workshop%2031Agosto/Frame_15_lbxmo0.png" alt=""  >
-                    </div>
+                <div class="grid-colomn-items" id="items_pequeños">
+                   <!-- Items pequeños Mood Carrusel -->
                 </div>
-                 
                 <div class="grid-column-item">
-                    <div class="gird-item-grande">
-                        <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630421820/Workshop%2031Agosto/Frame_16_babliz.png" alt="">
+                    <div class="gird-item-grande" id="items_grande">
+                    <!-- Item Grande imagen Titulo -->
                     </div>
                 </div>
             </div>
