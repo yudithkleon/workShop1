@@ -1,74 +1,103 @@
 import './style.css'
-const url 
+const url = 'http://localhost:4000/producto'
+// import conseguirId from './comprarProducto'
+// console.log(url)
 document.addEventListener('click', e => {
     conseguirId(e)
+    // pintar()
 })
 
-const añadirAlCarrito = document.getElementById('añadirCarrito')
+let carritoComprarYa = []
 
-añadirAlCarrito.addEventListener('click', () => {
-    alert(2)
-})
+fetch(url).then((v) => v.json()).then((d) => {pintar(d)})
 
-const combrarYa = document.getElementById('combrarYa')
 
-combrarYa.addEventListener('click', () => {
-    alert(3)
-})
+// const añadirAlCarrito = document.getElementById('añadirCarrito')
 
-let items_pequeños = document.getElementById('items_pequeños')
+// añadirAlCarrito.addEventListener('click', () => {
+//     alert(2)
+// })
 
-items_pequeños.innerHTML = `
-<div class="grid-item-pequeño">
-<img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630421820/Workshop%2031Agosto/Frame_16_babliz.png" alt="" >
-</div>
-<div class="grid-item-pequeño">
-<img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630417970/Workshop%2031Agosto/Frame_14_y0u0da.png" alt=""  >
-</div>
-<div class="grid-item-pequeño">
-<img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630417970/Workshop%2031Agosto/Frame_15_lbxmo0.png" alt=""  >
-</div>
-<div class="grid-item-pequeño">
-<img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630417970/Workshop%2031Agosto/Frame_15_lbxmo0.png" alt=""  >
-</div>
-`
+// const combrarYa = document.getElementById('combrarYa')
+// combrarYa.addEventListener('click', () => {
+//     alert(3)
+// })
 
-let items_grande = document.getElementById('items_grande')
+function pintar(data) {
+    let items_pequeños = document.getElementById('items_pequeños')
+    for(let i = 0; i < data[0].carrusel.length; i++){
+    items_pequeños.innerHTML += `
+    <div class="grid-item-pequeño">
+    <img src="${data[0].carrusel[i]}" alt="" >
+    </div>
+    `   
+    }
 
-items_grande.innerHTML = `
-<img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630421820/Workshop%2031Agosto/Frame_16_babliz.png" alt="">
+// =======================================================================================
+    let items_grande = document.getElementById('items_grande')
+    
+    items_grande.innerHTML = `
+    <img src="${data[0].imagen}" alt="">
+    `
 
-`
+// ======================================================================================
 
-let stop_botLane = document.getElementById('stop_botLane')
+    let stop_botLane = document.getElementById('stop_botLane')
+    for(let i = 0; i < data.length; i++){
+        stop_botLane.innerHTML += `
+        <div class="grid-column-producto">
+        <div class="imagen-producto">
+            <img src="${data[i].imagen}" alt="">
+        </div>
+        <div class="descripcion-producto">
+            <p class="nombre-producto">${data[i].nombre}</p>
+            <p class="precio-producto">$${data[i].precio}</p>
+        </div>
+        </div>
+        `
+    }
 
-stop_botLane.innerHTML = `
-<div class="grid-column-producto">
-<div class="imagen-producto">
-    <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630417957/Workshop%2031Agosto/Rectangle_1_rkjpy2.png" alt="">
-</div>
-<div class="descripcion-producto">
-    <p class="nombre-producto">Nombre producto</p>
-    <p class="precio-producto">$0000</p>
-</div>
-</div>
-<div class="grid-column-producto">
-<div class="imagen-producto">
-    <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630417955/Workshop%2031Agosto/Frame_20_ind8rr.png" alt="">
-</div>
-<div class="descripcion-producto">
-    <p class="nombre-producto">Nombre producto</p>
-    <p class="precio-producto">$0000</p>
-</div>
+    let botones = document.getElementById('botones')
 
-</div>
-<div class="grid-column-producto">
-<div class="imagen-producto">
-    <img src="https://res.cloudinary.com/dobboq5dt/image/upload/v1630417958/Workshop%2031Agosto/Frame_17_rpc5yn.png" alt="">
-</div>
-<div class="descripcion-producto">
-    <p class="nombre-producto">Nombre producto</p>
-    <p class="precio-producto">$0000</p>
-</div>
-</div>
-`
+    botones.innerHTML=`
+    <div>
+    <button class="btn1" id="añadirCarrito">ADD TO CART</button>
+    </div>
+    <div>
+    <div style="display:none" class="comprarYaDiv">
+    <p class="nombre-producto">${data[0].nombre}</p>
+    <h1 class="precio-producto">$${data[0].precio}</h1>
+    </div>
+    <button class="btn2 comprarYa">BUY  IT NOW</button>
+    </div>
+    `
+}
+
+function conseguirId(e){
+    if(e.target.classList.contains('comprarYa')){
+        comprarYa(e.target.parentElement)
+    }
+    e.stopPropagation()
+}
+
+const comprarYa = object => {
+    const elementos = {
+        nombre: object.querySelector("p").textContent,
+        precio: object.querySelector("h1").textContent
+    }
+
+    carritoComprarYa.push(elementos.nombre)
+    carritoComprarYa.push(elementos.precio)
+    if(localStorage.getItem('carritoCompraYa')){
+        localStorage.clear()
+        localStorage.setItem('carritoCompraYa', JSON.stringify(carritoComprarYa))
+        let mostrarAlert = document.getElementById('mostrarAlert')
+        mostrarAlert.innerHTML += `
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Felicidades!</strong> Has comprado ${elementos.nombre} a un precio de ${elementos.precio}.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        `
+    }
+    
+}
