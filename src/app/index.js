@@ -5,6 +5,7 @@ const url = 'http://localhost:4000/producto'
 document.addEventListener('click', e => {
     pintarBarra(e)
     conseguirId(e)
+    conseguirImgTop(e)
     // pintar()
 })
 
@@ -71,25 +72,49 @@ const pintarLocal = object => {
     localStorage.setItem('dio', JSON.stringify(elemento))
     localStorage.setItem('porfin', JSON.stringify(elemento.img2))
     pintarBarraLocal(elemento)
+    pintarImgTopLocal()
 }
 
 function pintarBarraLocal(elemento){
     let items_pequeños = document.getElementById('items_pequeños')
     items_pequeños.innerHTML =  `
     <div class="grid-item-pequeño">
-    <img src="${elemento.img1}" alt="" >
+    <img class="itemMostrar" src="${elemento.img1}" alt="" >
     </div>
     <div class="grid-item-pequeño">
-    <img src="${elemento.img2}" alt="" >
+    <img class="itemMostrar" src="${elemento.img2}" alt="" >
     </div>
     <div class="grid-item-pequeño">
-    <img src="${elemento.img3}" alt="" >
+    <img class="itemMostrar" src="${elemento.img3}" alt="" >
     </div>
     <div class="grid-item-pequeño">
-    <img src="${elemento.img4}" alt="" >
+    <img class="itemMostrar" src="${elemento.img4}" alt="" >
     </div>
     `   
 
+}
+
+function conseguirImgTop(e){
+    if(e.target.classList.contains('itemMostrar')){
+        cambiarPorfin(e.target.parentElement)
+    }
+}
+
+const cambiarPorfin = object => {
+    const elemento = {
+        img: object.querySelector('img').src
+    }
+    localStorage.setItem('porfin', JSON.stringify(elemento.img))
+    pintarImgTopLocal()
+}
+
+function pintarImgTopLocal(){
+    let img = JSON.parse(localStorage.getItem('porfin'))
+    let items_grande = document.getElementById('items_grande')
+    
+    items_grande.innerHTML = `
+    <img src="${img}" alt="">
+    `
 }
 
 // =========================================================================
@@ -105,7 +130,6 @@ const comprarYa = object => {
         nombre: object.querySelector("p").textContent,
         precio: object.querySelector("h1").textContent
     }
-
     carritoComprarYa.push(elementos.nombre)
     carritoComprarYa.push(elementos.precio)
     if(localStorage.getItem('carritoCompraYa')){
@@ -119,5 +143,4 @@ const comprarYa = object => {
         </div>
         `
     }
-    
 }
