@@ -14,6 +14,10 @@
     grid-template-columns: 15% 85%;
     grid-template-rows: 1fr;
 }
+.grid-column-producto{
+    height:800px;
+    width: 300px;
+}
 
 .grid-item-pequeño{
     text-align: center;
@@ -97,7 +101,8 @@ margin: 30px 0;
     padding: 0 100px;
 }
 
-.imagen-producto > img{
+.imagen-producto{
+    background-color: red;
     width: 100%;
 }
 
