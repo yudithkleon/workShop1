@@ -6,10 +6,11 @@ document.addEventListener('click', e => {
     pintarBarra(e)
     conseguirId(e)
     conseguirImgTop(e)
-    // pintar()
+    pintarModalCarrito()
 })
 
 let carritoComprarYa = []
+let carritoComprarDespues = []
 document.addEventListener('DOMContentLoaded', () =>
 {
     fetch(url).then((v) => v.json()).then((d) => {pintarProductos(d)})
@@ -146,14 +147,21 @@ function pintarBarraDerecha(elemento){
     let botones = document.getElementById('botones')
     botones.innerHTML=`
     <div>
-    <button class="btn1" id="añadirCarrito">ADD TO CART</button>
+        <div>
+            <button class="btn1 comprarYaDiv" id="añadirCarrito">ADD TO CART</button>
+            <div style="display:none" class="comprarYaDiv">
+                <p class="nombre-producto">${elemento.nombre}</p>
+                <h1 class="precio-producto">${elemento.precio}</h1>
+            </div>
+        </div>
     </div>
     <div>
-    <div style="display:none" class="comprarYaDiv">
-    <p class="nombre-producto">${elemento.nombre}</p>
-    <h1 class="precio-producto">${elemento.precio}</h1>
-    </div>
-    <button class="btn2 comprarYa">BUY  IT NOW</button>
+        <div style="display:none" class="comprarYaDiv">
+            <p class="nombre-producto">${elemento.nombre}</p>
+            <h1 class="precio-producto">${elemento.precio}</h1>
+        </div>
+            <button class="btn2 comprarYa">BUY  IT NOW</button>
+        </div>
     </div>
     `
 }
@@ -164,8 +172,59 @@ function conseguirId(e){
     if(e.target.classList.contains('comprarYa')){
         comprarYa(e.target.parentElement)
     }
+    if(e.target.classList.contains('comprarYaDiv')){
+        comprarDespues(e.target.parentElement)
+    }
     e.stopPropagation()
 }
+
+const comprarDespues = object => {
+    const elemento = {
+        nombre: object.querySelector("p").textContent,
+        precio: object.querySelector("h1").textContent,
+    }
+    carritoComprarDespues.push(elemento)
+    localStorage.setItem('carritoComprarDespues', JSON.stringify(carritoComprarDespues))
+}
+function pintarModalCarrito(){
+    let carrito = JSON.parse(localStorage.getItem('carritoComprarDespues'))
+    let compras = document.getElementById('items')
+    carrito.map((mapeo, index) => {
+        let cantidad = 1;
+        if(mapeo === mapeo){
+        cantidad ++    
+    }
+    compras.innerHTML += `
+    <div class="text-dark">
+        <th class="text-dark">${mapeo.nombre}</th>
+        <th class="text-dark">${mapeo.nombre}</th>
+        <th class="text-dark">${cantidad}</th>
+    </div>
+    `
+    
+    let total = document.getElementById('total')
+    const {precio} = mapeo
+
+    let precios = parse(precio)
+    console.log(precios)
+    total.innerHTML = `
+    <p>Total: ${precios + precios}</p>
+    `
+
+    let alertModal = document.getElementById('alertModal')
+    
+    
+})
+}
+document.getElementById('comprarProductos').addEventListener('click', () => {
+    localStorage.clear()
+    alertModal.innerHTML = `
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Felicidades!</strong> .
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    `
+})
 
 const comprarYa = object => {
     const elementos = {
@@ -175,14 +234,14 @@ const comprarYa = object => {
     carritoComprarYa.push(elementos.nombre)
     carritoComprarYa.push(elementos.precio)
     if(localStorage.getItem('carritoCompraYa')){
-        localStorage.clear()
-        localStorage.setItem('carritoCompraYa', JSON.stringify(carritoComprarYa))
-        let mostrarAlert = document.getElementById('mostrarAlert')
-        mostrarAlert.innerHTML += `
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Felicidades!</strong> Has comprado ${elementos.nombre} a un precio de ${elementos.precio}.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        `
+    localStorage.clear()
+    localStorage.setItem('carritoCompraYa', JSON.stringify(carritoComprarYa))
+    let mostrarAlert = document.getElementById('mostrarAlert')
+    mostrarAlert.innerHTML += `
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Felicidades!</strong> Has comprado ${elementos.nombre} a un precio de ${elementos.precio}.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    `
     }
 }
