@@ -32,9 +32,9 @@ function pintarProductos(data){
     for(let i = 0; i < data.length; i++){
         stop_botLane.classList.add('mostrar')
         stop_botLane.innerHTML += `
-                <div class="imagen-producto">
-                <img src="${data[i].imagen}" style="width:300px; height:400px;" alt="">
-                    <div class="productos">
+                <div class="imagen-productos">
+                <div class="productos">
+                <img src="${data[i].imagen}" class="imagen-producto" style="width:300px; height:400px;" alt="">
                     <h5 class="nombre-producto">${data[i].nombre}</h5>
                     <p class="precio-producto">$${data[i].precio}</p>
                     <div style="display:none">
@@ -72,6 +72,7 @@ const pintarLocal = object => {
     localStorage.setItem('dio', JSON.stringify(elemento))
     localStorage.setItem('porfin', JSON.stringify(elemento.img2))
     pintarBarraLocal(elemento)
+    pintarBarraDerecha(elemento)
     pintarImgTopLocal()
 }
 
@@ -116,6 +117,47 @@ function pintarImgTopLocal(){
     <img src="${img}" alt="">
     `
 }
+
+function pintarBarraDerecha(elemento){
+
+    let detalle = document.querySelector(".grid-column-detalle");
+    detalle.innerHTML = `
+    <div class="nombre-producto">
+        <h1>${elemento.nombre}</h1>
+    </div>
+    <div class="precio">
+        <p>${elemento.precio}</p>
+    </div>
+    <div class="tallas">
+        <p>Size</p>
+        <ul class="lista-tallas">
+            <a class="tallas" href=""><li>S</li></a>
+            <a class="tallas" href=""><li>M</li></a>
+            <a class="tallas" href=""><li>L</li></a>
+            <a class="tallas" href=""><li>XL</li></a>
+            <a  class="tallas" href=""><li>XXL</li></a>
+        </ul>
+    </div>
+    <div class="botones" id="botones">
+    </div>
+    <div id="mostrarAlert"></div>
+    `;
+
+    let botones = document.getElementById('botones')
+    botones.innerHTML=`
+    <div>
+    <button class="btn1" id="añadirCarrito">ADD TO CART</button>
+    </div>
+    <div>
+    <div style="display:none" class="comprarYaDiv">
+    <p class="nombre-producto">${elemento.nombre}</p>
+    <h1 class="precio-producto">${elemento.precio}</h1>
+    </div>
+    <button class="btn2 comprarYa">BUY  IT NOW</button>
+    </div>
+    `
+}
+
 
 // =========================================================================
 function conseguirId(e){

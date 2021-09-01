@@ -6,7 +6,7 @@
           "imagen": "https://res.cloudinary.com/danimel/image/upload/v1630449101/Rectangle_1_oqqg9z.png",
           "descripcion": "Let then know you´re 90s royalty with this official. The Fresh prince crownpattern sweater. Throw vintage vibes that uncle phil would approve of. Featuring woven the fresh Prince logo on chest. navy crown print crew neck sweatshirt with white ribbed collar and waist band. Cotton/Poly blend.",
           "tallas": {"s":"20", "m":"10",  "l":"10",  "xl":"10",  "xxl":"10" },
-          "precio": "80.00",
+          "precio": 80.00,
           "id": 1,
           "carrusel": ["https://res.cloudinary.com/danimel/image/upload/v1630449102/Rectangle_4_xnytnk.png", "https://res.cloudinary.com/danimel/image/upload/v1630449102/Rectangle_3_zprmmq.png", "https://res.cloudinary.com/danimel/image/upload/v1630449101/Rectangle_1_oqqg9z.png", "https://res.cloudinary.com/danimel/image/upload/v1630449101/Rectangle_2_krdfad.png"]       
         },
@@ -16,7 +16,7 @@
           "imagen": "https://res.cloudinary.com/danimel/image/upload/v1630440428/Frame_20_lxiyi7.png",
           "descripcion": "Let then know you´re 90s royalty with this official. The Fresh prince crownpattern sweater. Throw vintage vibes that uncle phil would approve of. Featuring woven the fresh Prince logo on chest. navy crown print crew neck sweatshirt with white ribbed collar and waist band. Cotton/Poly blend.",
           "tallas": {"s":"10", "m":"30",  "l":"10",  "xl":"10",  "xxl":"10" },
-          "precio": "85.00",
+          "precio": 85.00,
           "id": 2,
           "carrusel": ["https://res.cloudinary.com/danimel/image/upload/v1630440428/Frame_20_lxiyi7.png", "https://res.cloudinary.com/danimel/image/upload/v1630440428/Frame_22_micfby.png",  "https://res.cloudinary.com/danimel/image/upload/v1630440427/Frame_21_plrmcr.png", "https://res.cloudinary.com/danimel/image/upload/v1630449099/card_uvsfhr.png"]     
         },
@@ -26,7 +26,7 @@
           "imagen": "https://res.cloudinary.com/danimel/image/upload/v1630440428/Frame_18_owstch.png",
           "descripcion": "Let then know you´re 90s royalty with this official. The Fresh prince crownpattern sweater. Throw vintage vibes that uncle phil would approve of. Featuring woven the fresh Prince logo on chest. navy crown print crew neck sweatshirt with white ribbed collar and waist band. Cotton/Poly blend.",
           "tallas": {"s":"16", "m":"10",  "l":"10",  "xl":"10",  "xxl":"9" },
-          "precio": "90.00",
+          "precio": 90.00,
           "id": 3,
           "carrusel": ["https://res.cloudinary.com/danimel/image/upload/v1630440428/Frame_18_owstch.png", "https://res.cloudinary.com/danimel/image/upload/v1630440431/Frame_17_e2rfh9.png", "https://res.cloudinary.com/danimel/image/upload/v1630440428/Frame_19_y0ne4f.png, https://res.cloudinary.com/danimel/image/upload/v1630440428/Frame_18_owstch.png"]
         },
@@ -36,7 +36,7 @@
           "imagen": "https://res.cloudinary.com/danimel/image/upload/v1630440428/Frame_16_i0alc0.png",
           "descripcion": "Let then know you´re 90s royalty with this official. The Fresh prince crownpattern sweater. Throw vintage vibes that uncle phil would approve of. Featuring woven the fresh Prince logo on chest. navy crown print crew neck sweatshirt with white ribbed collar and waist band. Cotton/Poly blend.",
           "tallas": {"s":"100", "m":"6",  "l":"10",  "xl":"10",  "xxl":"2" },
-          "precio": "79.00",
+          "precio":79.00,
           "id": 4,
           "carrusel": ["https://res.cloudinary.com/danimel/image/upload/v1630440428/Frame_16_i0alc0.png", "https://res.cloudinary.com/danimel/image/upload/v1630440426/Frame_14_gmzpga.png", "https://res.cloudinary.com/danimel/image/upload/v1630440428/Frame_15_hkxp0u.png", "https://res.cloudinary.com/danimel/image/upload/v1630440428/Frame_16_i0alc0.png"]
         }
